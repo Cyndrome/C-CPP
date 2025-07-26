@@ -12,16 +12,14 @@ int main()
     {
         for (b=1; b<=3; b++)
         {
-            if(b!=a)
-            {
-                for(c=1; c<=3; c++)
+            for(c=1; c<=3; c++)
                 {
-                    if (c!=a && c!=b)
+                    if(b != a && c!=a && c!=b)
                     {
                         printf("%d, %d, %d\n", a, b, c);
-                    }
+                    }        
                 }
-            }
+            
         }
     }
     return 0;
