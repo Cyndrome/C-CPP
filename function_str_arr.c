@@ -6,6 +6,8 @@ char *reverseChar(char *str)
 {
     int len = strlen(str);
     char *s = malloc(len + 1);
+    if (s==NULL)
+        printf("Memory allocation failed\n");
     for (int i = 0; i < len; i++)
     {
         s[i] = str[len - 1 - i];
@@ -17,6 +19,8 @@ char *reverseChar(char *str)
 int *reverse_arr(int *a, int size)
 {
     int *r = malloc(size * sizeof(int));
+    if (r==NULL)
+        printf("Memory allocation failed.\n");
     for (int i = 0; i < size; i++)
     {
         r[i] = a[size-1-i];
