@@ -1,30 +1,34 @@
 #include <stdio.h>
 
-double cubeRoot (int x)
-{
-    double l = 0, r = x, mid, eps = 0.0001;
-
-    while(l <= r)
-    {
-        mid = (l + r) / 2;
-        if(mid * mid * mid > x) r = mid - eps;
-        else l = mid + eps;
-    }
-
-    return r;
-}
-
-int main()
-{
+int main() {
     int T;
-    int x;
-    double crt;
     scanf("%d", &T);
-    for (int i = 0; i < T; i++)
+
+    while (T)
     {
-        scanf("%d", &x);
-        crt = cubeRoot(x);
-        printf("%0.3lf\n", crt);
+        unsigned long long x;
+        scanf("%llu", &x);
+
+        double low = 0.0;
+        double high;
+
+        if (x > 1)
+            high = (double)x;
+        else
+            high = 1.0;
+
+        for (int i = 0; i < 100; i++) {
+            double mid = (low + high) / 2.0;
+
+            if (mid * mid * mid <= (double)x)
+                low = mid;
+            else
+                high = mid;
+        }
+
+        printf("%.3f\n", low);
+        T--;
     }
+
     return 0;
 }
